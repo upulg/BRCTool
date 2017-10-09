@@ -106,7 +106,7 @@ public class MainJFrame extends javax.swing.JFrame {
         filePathTextField.setEditable(false);
         filePathTextField.setToolTipText("");
 
-        browserFileButton.setText("Browser");
+        browserFileButton.setText("Load File");
         browserFileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 browserFileButtonActionPerformed(evt);
@@ -283,7 +283,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addComponent(jLabelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("No Warnings");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -693,7 +693,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-      if 
+      // if 
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     public void writeReticDataToFile(String fileName, ArrayList<ReticEntry> data) {

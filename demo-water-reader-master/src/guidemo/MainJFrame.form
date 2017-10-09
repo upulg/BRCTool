@@ -91,7 +91,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="browserFileButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Browser"/>
+        <Property name="text" type="java.lang.String" value="Load File"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="browserFileButtonActionPerformed"/>
@@ -447,7 +447,7 @@
     </Container>
     <Component class="javax.swing.JTextField" name="jTextField2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
+        <Property name="text" type="java.lang.String" value="No Warnings"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
