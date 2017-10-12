@@ -50,7 +50,7 @@ public class WaterDetail {
         this.kn = this.nh3 - this.tciOut / 5;
         this.brc = this.umkd * this.kn / (this.kn + 0.18);
         this.retTime = 55;
-        this.krt = (this.tciIn / this.tciOut - 1) * 1 / this.retTime;
+        this.krt = +(this.tciIn / this.tciOut - 1) * 1 / this.retTime;
         this.krt20 = Math.exp(-6900 * (1 / 293 - 1 / (273 + this.temperature))) * this.krt;
         this.tclBRC = this.tciOut - this.brc;
     }

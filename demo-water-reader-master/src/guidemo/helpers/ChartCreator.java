@@ -140,9 +140,11 @@ public class ChartCreator {
         TimeSeriesCollection dataset = new TimeSeriesCollection();
         TimeSeries krtSeries = new TimeSeries("KRT 20");
         
-        TimeSeries line004 = new TimeSeries("004", Day.class);
-        TimeSeries line02 = new TimeSeries("02", Day.class);
+        TimeSeries line004 = new TimeSeries("0.004", Day.class);
+        TimeSeries line02 = new TimeSeries("0.02", Day.class);
+        List<String> removeList = Arrays.asList("0.004", "0.02");
         
+
         for (WaterDetail dt : data) {
             krtSeries.addOrUpdate(new Minute(dt.date), dt.krt20);
             line004.addOrUpdate(new Day(dt.date), 0.004);
@@ -153,14 +155,13 @@ public class ChartCreator {
         dataset.addSeries(line004);
         dataset.addSeries(line02);
         
-        JFreeChart chart = ChartFactory.createTimeSeriesChart("Chloramine decay behaviour", "Date", "Chloramine Stability", dataset);
+        JFreeChart chart = ChartFactory.createTimeSeriesChart("Chloramine decay behaviour", "Date", "Chloramine Stability", dataset,true,true,false);
         XYPlot plot = (XYPlot) chart.getPlot();
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setAutoTickUnitSelection(true);
         axis.setVerticalTickLabels(true);
         axis.setDateFormatOverride(new SimpleDateFormat("dd-MM-yy"));
         
-        List<String> removeList = Arrays.asList("004", "02");
         LegendItemCollection legendItemsOld = plot.getLegendItems();
         LegendItemCollection legendItemsNew = new LegendItemCollection();
         
@@ -291,14 +292,14 @@ public class ChartCreator {
         TimeSeriesCollection secondDataset = new TimeSeriesCollection();
         secondDataset.addSeries(NO2Series);
         
-        JFreeChart chart = ChartFactory.createTimeSeriesChart("Retic system behaviour", "Date", "Nitrification Potential", dataset);
+        JFreeChart chart = ChartFactory.createTimeSeriesChart("Retic system behaviour", "Date", "Nitrification Potential indicator", dataset);
         XYPlot plot = (XYPlot) chart.getPlot();
         DateAxis axis = (DateAxis) plot.getDomainAxis();
         axis.setAutoTickUnitSelection(true);
         axis.setVerticalTickLabels(true);
         axis.setDateFormatOverride(new SimpleDateFormat("dd-MM-yy"));
         
-        final NumberAxis axis2 = new NumberAxis("NO2-N");
+        final NumberAxis axis2 = new NumberAxis("Nitrite (mg-N/L)");
         axis2.setAutoRangeIncludesZero(false);
         axis2.setRange(0.000,0.020);
 

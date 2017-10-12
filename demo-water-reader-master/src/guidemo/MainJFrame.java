@@ -118,11 +118,11 @@ public class MainJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Date", "TCI_in", "TCLI_out", "Temp", "NH3-N", "NO2-N", "Tablet Dosed", "Selected"
+                "Date", "TCI_in", "TCLI_out", "Temp", "NH3-N", "NO2-N", "krt", "krt20", "Tablet Dosed", "Selected"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Boolean.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Float.class, java.lang.Boolean.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -131,7 +131,7 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(dataTable);
         if (dataTable.getColumnModel().getColumnCount() > 0) {
-            dataTable.getColumnModel().getColumn(0).setMinWidth(250);
+            dataTable.getColumnModel().getColumn(0).setMinWidth(100);
         }
 
         jButtonAdd.setText("Add");
@@ -388,6 +388,10 @@ public class MainJFrame extends javax.swing.JFrame {
                     break;
                 case 6: //Date
                     wd.dosed = (boolean) model1.getValueAt(row, column);
+                 case 7: //Date
+                    wd.krt = (float) model1.getValueAt(row, column);
+                  case 8: //Date
+                    wd.krt20 = (float) model1.getValueAt(row, column);
                     break;
                     
                 default:
@@ -459,7 +463,11 @@ public class MainJFrame extends javax.swing.JFrame {
                 dt.temperature,
                 dt.nh3,
                 dt.no2,
+                dt.krt,
+                dt.krt20,
                 dt.dosed,
+                
+               
                 false
             });
         }
