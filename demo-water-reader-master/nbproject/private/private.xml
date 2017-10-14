@@ -5,10 +5,10 @@
         <group>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/helpers/DateCellEditor.java</file>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/helpers/DateTimeTableEditor.java</file>
-            <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/models/PredictingWaterDetail.java</file>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/helpers/XlsReader.java</file>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/MainJFrame.java</file>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/helpers/DateCellRender.java</file>
+            <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/models/ReticEntry.java</file>
             <file>file:/Users/nghitran/NetBeansProjects/demo-water-reader-master/src/guidemo/models/WaterDetail.java</file>
         </group>
     </open-files>

@@ -47,11 +47,11 @@ public class WaterDetail {
     
     public void calculateValue() {
         this.umkd = -0.0008 * Math.pow(this.temperature, 3) + 0.0419 * Math.pow(this.temperature, 2) - 0.6253 * this.temperature + 3.9132 + 0.23;
-        this.kn = this.nh3 - this.tciOut / 5;
+        this.kn = this.nh3 - this.tciOut / 5.0;
         this.brc = this.umkd * this.kn / (this.kn + 0.18);
-        this.retTime = 55;
+        this.retTime = 55.0;
         this.krt = +(this.tciIn / this.tciOut - 1) * 1 / this.retTime;
-        this.krt20 = Math.exp(-6900 * (1 / 293 - 1 / (273 + this.temperature))) * this.krt;
+        this.krt20 = Math.exp(-6900 * (1.0 / 293.0 - 1.0 / (273.0 + this.temperature))) * this.krt;
         this.tclBRC = this.tciOut - this.brc;
     }
 

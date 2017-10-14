@@ -33,7 +33,7 @@ public class ReticEntry {
     
     public void calculateValue() {
         this.nitrificationPotentialIndicator = 
-                this.totalChlorine - this.temperature / 10 * ((this.nh3) - this.totalChlorine / 5) / (0.18 + this.nh3 - this.totalChlorine / 5);
+                this.totalChlorine - this.temperature / 10.0 * ((this.nh3) - this.totalChlorine / 5.0) / (0.18 + this.nh3 - this.totalChlorine / 5.0);
     }
 
     @Override
