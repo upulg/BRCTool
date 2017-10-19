@@ -472,6 +472,8 @@ public class MainJFrame extends javax.swing.JFrame {
             
             WaterDetail wd = this.detailArray.get(row);
             
+            boolean changedData = false;
+            
             switch(column) {
                 case 0: //Date
                     String tempDate = (String)model1.getValueAt(row, column);
@@ -480,28 +482,84 @@ public class MainJFrame extends javax.swing.JFrame {
 
                     break;
                 case 1: //Date
-                    wd.tciIn = (float) model1.getValueAt(row, column);
+                    float val = (float) model1.getValueAt(row, column);
+                    
+                    if (val != wd.tciIn) {
+                        changedData = true;
+                    }
+                    
+                    wd.tciIn = val;
                     break;
                 case 2: //Date
-                    wd.tciOut = (float) model1.getValueAt(row, column);
+                    float tciOutVal = (float) model1.getValueAt(row, column);
+                    
+                    if (tciOutVal != wd.tciOut) {
+                        changedData = true;
+                    }
+                    
+                    wd.tciOut = tciOutVal;
+                    
                     break;
                 case 3: //Date
-                    wd.temperature = (float) model1.getValueAt(row, column);
-                    break;
-                case 4: //Date
-                    wd.nh3 = (float) model1.getValueAt(row, column);
-                    break;
-                case 5: //Date
-                    wd.no2 = (float) model1.getValueAt(row, column);
-                    break;
-                case 6: //Date
-                    wd.dosed = (boolean) model1.getValueAt(row, column);
-                 case 7: //Date
-                    wd.krt = (float) model1.getValueAt(row, column);
-                  case 8: //Date
-                    wd.krt20 = (float) model1.getValueAt(row, column);
+                    float temperatureVal  = (float) model1.getValueAt(row, column);
+                    
+                    if (temperatureVal != wd.temperature) {
+                        changedData = true;
+                    }
+                    
+                    wd.temperature = temperatureVal;
                     break;
                     
+                case 4: //NH3
+                    float nh3Val = (float) model1.getValueAt(row, column);
+                    
+                    if (nh3Val != wd.nh3) {
+                        changedData = true;
+                    }
+                    
+                    wd.nh3 = nh3Val;
+                    
+                    break;
+                case 5: //NO2
+                    float no2Val = (float) model1.getValueAt(row, column);
+                    
+                    if (no2Val != wd.no2) {
+                        changedData = true;
+                    }
+                    
+                    wd.no2 = no2Val;
+                    
+                    break;
+                case 6: //Krt
+                    float krtVal = (float) model1.getValueAt(row, column);
+                    
+                    if (krtVal != wd.krt) {
+                        changedData = true;
+                    }
+                    
+                    wd.krt = krtVal;
+                    
+                    break;
+                case 7: //krt20
+                    float krt20Val = (float) model1.getValueAt(row, column);
+                    
+                    if (krt20Val != wd.krt20) {
+                        changedData = true;
+                    }
+                    
+                    wd.krt20 = krt20Val;
+                    
+                    break;
+                case 8: //dosed
+                    boolean dosedVal = (boolean) model1.getValueAt(row, column);
+                    
+                    if (dosedVal != wd.dosed) {
+                        changedData = true;
+                    }
+                    
+                    wd.dosed = dosedVal;
+                    
+                    break;
                 default:
                     break;
             }
@@ -511,9 +569,13 @@ public class MainJFrame extends javax.swing.JFrame {
                 this.detailArray.set(row, wd);
                 
                 if (row == this.detailArray.size() - 1) {
-                    this.setChloramineWarningText((WaterDetail[]) this.detailArray.toArray());
-                    this.setNitritionWarningText((WaterDetail[]) this.detailArray.toArray());
+                    this.setChloramineWarningText(wd);
+                    this.setNitritionWarningText(wd);
                 }
+            }
+            
+            if (changedData) {
+                this.resetChart();
             }
         });
         
@@ -532,6 +594,7 @@ public class MainJFrame extends javax.swing.JFrame {
             String columnName = model1.getColumnName(column);
             
             ReticEntry re = this.reticEntryArray.get(row);
+            boolean changedData = false;
             
             switch(column) {
                 case 0: //Date
@@ -541,13 +604,40 @@ public class MainJFrame extends javax.swing.JFrame {
 
                     break;
                 case 1: //Date
-                    re.totalChlorine = (float) model1.getValueAt(row, column);
+                    float totalChlorine = (float) model1.getValueAt(row, column);
+                    
+                    if (re.totalChlorine != totalChlorine) {
+                        changedData = true;
+                    }
+                    
+                    re.totalChlorine = totalChlorine;
                     break;
                 case 2: //Date
-                    re.temperature = (float) model1.getValueAt(row, column);
+                    float temperature = (float) model1.getValueAt(row, column);
+                    
+                    if (re.temperature != temperature) {
+                        changedData = true;
+                    }
+                    
+                    re.temperature = temperature;
                     break;
-                case 3: //Date
-                    re.nh3 = (float) model1.getValueAt(row, column);
+                case 3: //nh3
+                    float nh3 = (float) model1.getValueAt(row, column);
+                    
+                    if (re.nh3 != nh3) {
+                        changedData = true;
+                    }
+                    
+                    re.nh3 = nh3;
+                    break;
+                case 4: //NO2
+                    float no2 = (float) model1.getValueAt(row, column);
+                    
+                    if (re.no2 != no2) {
+                        changedData = true;
+                    }
+                    
+                    re.no2 = no2;
                     break;
             }
             
@@ -556,11 +646,31 @@ public class MainJFrame extends javax.swing.JFrame {
                 this.reticEntryArray.set(row, re);
                 
                 if (row == this.reticEntryArray.size() - 1) {
-                    this.setReticWarningText((ReticEntry[]) this.reticEntryArray.toArray());
+                    this.setReticWarningText(re);
                 }
+            }
+            
+            if(changedData){
+                this.resetReticChart();
             }
         });
         
+    }
+    
+    private void resetChart() {
+        WaterDetail[] arr = new WaterDetail[this.detailArray.size()];
+        this.detailArray.toArray(arr);
+        
+        generateNitrificationChart(arr);
+        generateChloramineChart(arr);
+        generateForecastingChart(arr);
+    }
+    
+    private void resetReticChart() {
+        ReticEntry[] arr = new ReticEntry[this.reticEntryArray.size()];
+        this.reticEntryArray.toArray(arr);
+        
+        generateReticChart(arr);
     }
     
     private void initWarningLabels() {
@@ -642,14 +752,17 @@ public class MainJFrame extends javax.swing.JFrame {
         this.jPanelReticFullChart.add(chartViewFull, BorderLayout.CENTER);
         this.jPanelReticFullChart.validate();
         
-        this.setReticWarningText(data);
+        if (data.length > 0){
+            this.setReticWarningText(data[data.length - 1]);
+        } else {
+            this.setReticWarningText(null);
+        }
     }
     
-    private void setReticWarningText(ReticEntry[] data) {
+    private void setReticWarningText(ReticEntry lastRecord) {
         boolean isWarning = false;
-        if (data.length > 0) {
-            ReticEntry last = data[data.length - 1];
-            double val = last.nitrificationPotentialIndicator;
+        if (lastRecord != null) {
+            double val = lastRecord.nitrificationPotentialIndicator;
             
             if(val >= 0.2 && val <= 0.4) {
                 isWarning = true;
@@ -695,14 +808,18 @@ public class MainJFrame extends javax.swing.JFrame {
         this.jPanelChloramineFullChart.add(chartViewFull, BorderLayout.CENTER);
         this.jPanelChloramineFullChart.validate();
         
-        this.setChloramineWarningText(data);
+        if (data.length > 0){
+            this.setChloramineWarningText(data[data.length - 1]);
+        } else {
+            this.setChloramineWarningText(null);
+        }
+                
     }
     
-    private void setChloramineWarningText(WaterDetail[] data) {
+    private void setChloramineWarningText(WaterDetail lastData) {
         boolean isWarning = false;
-        if (data.length > 0) {
-            WaterDetail last = data[data.length - 1];
-            double val = last.krt20;
+        if (lastData != null) {
+            double val = lastData.krt20;
             
             if(val >= 0.2 && val <= 0.4) {
                 isWarning = true;
@@ -735,15 +852,18 @@ public class MainJFrame extends javax.swing.JFrame {
         this.jPanelNitrificationFullChart.add(chartViewFull, BorderLayout.CENTER);
         this.jPanelNitrificationFullChart.validate();
         
-        this.setNitritionWarningText(data);
+        if (data.length > 0){
+            this.setNitritionWarningText(data[data.length - 1]);
+        } else {
+            this.setNitritionWarningText(null);
+        }
     }
     
-    private void setNitritionWarningText(WaterDetail[] data) {
+    private void setNitritionWarningText(WaterDetail lastRecord) {
         
         boolean isWarning = false;
-        if (data.length > 0) {
-            WaterDetail last = data[data.length - 1];
-            double val = last.tclBRC;
+        if (lastRecord != null) {
+            double val = lastRecord.tclBRC;
             
             if (val >= 0.2 && val <= 0.4) {
                 isWarning = true;
