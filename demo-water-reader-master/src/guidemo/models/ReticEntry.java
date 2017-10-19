@@ -38,7 +38,7 @@ public class ReticEntry {
 
     @Override
     public String toString() {
-        return String.format("WaterDetail (%s, %.2f, %.2f, %.2f, %.2f, %.2f, %.2f)", date,
+        return String.format("WaterDetail (%s, %.4f, %.4f, %.4f, %.4f, %.4f, %.4f)", date,
                 totalChlorine, temperature, nh3, no2);
     }
     

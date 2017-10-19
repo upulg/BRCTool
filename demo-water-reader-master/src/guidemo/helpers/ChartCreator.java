@@ -27,6 +27,8 @@ import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.block.BlockBorder;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.StandardXYItemRenderer;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -96,6 +98,7 @@ public class ChartCreator {
         
         final StandardXYItemRenderer renderer2 = new StandardXYItemRenderer();
         renderer2.setSeriesPaint(0, Color.black);
+       
         renderer2.setPlotLines(true);
         plot.setRenderer(1, renderer2);
         
@@ -229,7 +232,7 @@ public class ChartCreator {
         JFreeChart chart = ChartFactory.createTimeSeriesChart("Forecasting residual without interference", "Date", "Predicting Data", dataset);
         XYPlot plot = (XYPlot) chart.getPlot();
         DateAxis axis = (DateAxis) plot.getDomainAxis();
-        axis.setAutoTickUnitSelection(true);
+        axis.setAutoTickUnitSelection(false);
         axis.setVerticalTickLabels(true);
         axis.setDateFormatOverride(new SimpleDateFormat("dd-MM-yy"));
         

@@ -36,9 +36,9 @@ public class PredictingWaterDetail {
         
         for (int i = 0; i < numberOfDay; i++) {
             int index = i + 1;
-            float tcl = (float) (detail.tciIn / (1.0 + ((detail.tciIn - detail.tciOut) / detail.tciOut) * Math.exp(-6924.0 * (1.0/(273.0+(detail.temperature + 1.0 / 10.0 * index)) - 1.0/(273.0 + detail.temperature)))));
-            float umkd = (float) (-0.0008 * Math.pow(detail.temperature + index / 10.0, 3.0) + 0.0419 * Math.pow(detail.temperature + index / 10.0, 2) - 0.6253 * (detail.temperature + index / 10.0) + 3.9132 + 0.23);
-            float brc = (float) (umkd * ( detail.nh3 - tcl / 5.0) / ((detail.nh3 - tcl / 5.0) + 0.18));
+            float tcl = (float) (detail.tciIn / (1.0000 + ((detail.tciIn - detail.tciOut) / detail.tciOut) * Math.exp(-6924.0000 * (1.0000/(273.0000+(detail.temperature + 1.0000 / 10.0000 * index)) - 1.00/(273.0000 + detail.temperature)))));
+            float umkd = (float) (-0.0008 * Math.pow(detail.temperature + index / 10.0000, 3.0000) + 0.0419 * Math.pow(detail.temperature + index / 10.0000, 2) - 0.6253 * (detail.temperature + index / 10.0000) + 3.9132 + 0.2300);
+            float brc = (float) (umkd * ( detail.nh3 - tcl / 5.0000) / ((detail.nh3 - tcl / 5.0000) + 0.1800));
             float tclBRC = tcl - brc;
             
             if(Float.isNaN(tcl)) {
