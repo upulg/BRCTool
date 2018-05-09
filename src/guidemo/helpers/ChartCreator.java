@@ -304,7 +304,7 @@ public class ChartCreator {
         
         final NumberAxis axis2 = new NumberAxis("Nitrite (mg-N/L)");
         axis2.setAutoRangeIncludesZero(false);
-        axis2.setRange(0.000,0.020);
+        axis2.setRange(0.000,0.060);
 
         plot.setRangeAxis(1, axis2);
         plot.setDataset(1, secondDataset);
